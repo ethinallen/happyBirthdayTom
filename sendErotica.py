@@ -20,6 +20,8 @@ def sendAlert(number, message):
 
 # this is an awful way to do this but I want to go home I will clean it up at a later date
 sent = ''
+
+# concatenate every 5 paragraphs and send them
 for i, sentence in enumerate(stories):
     sent = sent + sentence
     if i % 5 == 0:
