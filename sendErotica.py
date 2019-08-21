@@ -11,11 +11,11 @@ with open('account.json', 'r') as f:
     account = json.load(f)
 
 # send the alert
-def sendAlert(number, message):
+def sendAlert(toNumber, fromNumber, message):
     client = Client(account['accountSID'], account['authToken'])
     message = client.messages.create(
-        to=number,
-        from_="+19389999671",
+        to=toNumber,
+        from_=fromNumber,
         body=message)
 
 # this is an awful way to do this but I want to go home I will clean it up at a later date
@@ -26,7 +26,7 @@ for i, sentence in enumerate(stories):
     sent = sent + sentence
     if i % 5 == 0:
         try:
-            sendAlert('+18032922566', sent)
+            sendAlert('+18032922566',"+19389999671", sent)
         except:
             pass
 
